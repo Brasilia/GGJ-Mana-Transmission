@@ -31,6 +31,12 @@ public class Platformer2DUserControl : MonoBehaviour
 			magicUser.Fire ();
 		}
 
+
+		// If is able to use magic and the transmission button is pressed...
+		if (GetComponent<MagicUser>().isActiveAndEnabled && CrossPlatformInputManager.GetButtonDown ("Fire2")) {
+			// ... transmits mana source to the other player
+			magicUser.Transmission ();
+		}
 	}
 
 

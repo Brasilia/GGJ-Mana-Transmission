@@ -13,6 +13,7 @@ public class MagicUser : MonoBehaviour {
 	[SerializeField] private ElementalType elementalType;
 	[SerializeField] private Transform projectileSpawn;
 	[SerializeField] private GameObject magicProjectile;
+	[SerializeField] private MagicUser otherUser;
 
 	// Use this for initialization
 	void Start () {
@@ -27,5 +28,13 @@ public class MagicUser : MonoBehaviour {
 	// Spawns the magic projectile on the correct spawn position
 	public void Fire() {
 		GameObject projectile = (GameObject) Instantiate (magicProjectile, projectileSpawn.position, projectileSpawn.rotation);
+	}
+
+	// Transmits the mana source to the next player
+	public void Transmission () {
+		otherUser.enabled = true;
+		otherUser.GetComponent<Platformer2DUserControl> ().enabled = true;
+		this.GetComponent<Platformer2DUserControl> ().enabled = false;
+		this.enabled = false;
 	}
 }
