@@ -24,8 +24,10 @@ public class MagicProjectile : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		// In case an obstacle is hit, calls the method to destroy it
-		if (coll.gameObject.tag == "Obstacle") {
-			coll.gameObject.SendMessage ("DestroyObstacle");
+		if (coll.transform.parent.tag == "Obstacle") {
+			coll.gameObject.GetComponentInParent<DestructableObstacle>().DestroyObstacle();
+		} else if (coll.gameObject.tag == "Obstacle") {
+			coll.gameObject.GetComponent<DestructableObstacle>().DestroyObstacle();
 		}
 
 		// Destroy the projectile if it hits something
