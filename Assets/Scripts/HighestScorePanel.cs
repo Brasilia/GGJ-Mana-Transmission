@@ -23,5 +23,6 @@ public class HighestScorePanel : MonoBehaviour {
 
 	public void ResetHighestScore() {
 		PlayerPrefs.SetFloat ("highestScore", 0.0f);
+		UpdateText ();
 	}
 }

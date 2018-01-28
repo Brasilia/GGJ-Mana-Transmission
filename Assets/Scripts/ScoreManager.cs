@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
 
 public class ScoreManager : MonoBehaviour {
 
 	[SerializeField] private Text scoreText;
-	[SerializeField] private float scoreValue = 0;
+	public float scoreValue = 0;
 	private int pointsPerSecond = 10;
 
 	[SerializeField] private float highestScore = 0;

@@ -21,4 +21,8 @@ public class LoadScene : MonoBehaviour {
 	public void LoadSceneByIndex(int index) {
 		SceneManager.LoadScene (index);
 	}
+
+	public void Quit() {
+		Application.Quit ();
+	}
 }

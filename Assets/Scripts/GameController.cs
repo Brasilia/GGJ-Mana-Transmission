@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
 	[SerializeField] Platformer2DUserControl Player1;
 	[SerializeField] Platformer2DUserControl Player2;
 	[SerializeField] ScoreManager scoreManager;
+	[SerializeField] GameObject scorePanel;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +17,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	// Starts the EndGame Coroutine
@@ -39,6 +40,8 @@ public class GameController : MonoBehaviour {
 		Player1.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 		Player2.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (1.0f);
+
+		scorePanel.SetActive (true);
 	}
 }
