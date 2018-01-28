@@ -14,13 +14,20 @@ public class MagicUser : MonoBehaviour {
 	[SerializeField] private Transform projectileSpawn;
 	[SerializeField] private GameObject magicProjectile;
 	[SerializeField] private MagicUser otherUser;
+	public GameObject magicActiveUI;
 
 	public string fireButton = "Fire_P1";
 	public string transmissionButton = "Transmission_P1";
 
+	void Awake(){
+		
+	}
+
 	// Use this for initialization
 	void Start () {
-		
+		if (gameObject.activeInHierarchy){
+			magicActiveUI.SetActive (true);
+		}
 	}
 	
 	// Update is called once per frame
@@ -47,6 +54,8 @@ public class MagicUser : MonoBehaviour {
 	// Transmits the mana source to the next player
 	public void Transmission () {
 		otherUser.enabled = true;
+		otherUser.magicActiveUI.SetActive (true);
+		magicActiveUI.SetActive (false);
 		//otherUser.GetComponent<Platformer2DUserControl> ().enabled = true;
 		//this.GetComponent<Platformer2DUserControl> ().enabled = false;
 		this.enabled = false;

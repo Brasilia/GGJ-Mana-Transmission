@@ -30,9 +30,9 @@ public class Platformer2DUserControl : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// Read the inputs.
-		bool crouch = Input.GetKey(KeyCode.LeftControl);
+		//bool crouch = Input.GetKey(KeyCode.LeftControl);
 		// Pass all parameters to the character control script.
-		m_Character.Move(horizontalInput, crouch, m_Jump);
+		m_Character.Move(horizontalInput, false, m_Jump);
 		m_Jump = false;
 	}
 }

@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
 	[SerializeField] Platformer2DUserControl Player1;
 	[SerializeField] Platformer2DUserControl Player2;
 	[SerializeField] ScoreManager scoreManager;
-	[SerializeField] GameObject scorePanel;
+	[SerializeField] GameObject scoreDeathPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +42,6 @@ public class GameController : MonoBehaviour {
 
 		yield return new WaitForSeconds (1.0f);
 
-		scorePanel.SetActive (true);
+		scoreDeathPanel.SetActive (true);
 	}
 }
