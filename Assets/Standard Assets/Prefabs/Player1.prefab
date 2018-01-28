@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114154145621391204}
   - component: {fileID: 61802270560575862}
   - component: {fileID: 114126165048433032}
+  - component: {fileID: 114411871321126318}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492070596446876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4547105, y: -3.11, z: 0}
+  m_LocalPosition: {x: -8.9, y: -3.11, z: 0}
   m_LocalScale: {x: 1.7715329, y: 1.7715304, z: 1}
   m_Children:
   - {fileID: 4699545513782052}
@@ -241,6 +242,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpButton: Jump_P1
+--- !u!114 &114411871321126318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1492070596446876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39852a4870afe048bb1fd94d8b2855e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114936099092812614
 MonoBehaviour:
   m_ObjectHideFlags: 1

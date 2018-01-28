@@ -9,6 +9,7 @@ public class Platformer2DUserControl : MonoBehaviour
 	private bool m_Jump;
 
 	public string jumpButton = "Jump_P1";
+	[SerializeField] private float horizontalInput = 1.0f;
 
 	private void Awake()
 	{
@@ -30,9 +31,8 @@ public class Platformer2DUserControl : MonoBehaviour
 	{
 		// Read the inputs.
 		bool crouch = Input.GetKey(KeyCode.LeftControl);
-		float h = 0.0f;
 		// Pass all parameters to the character control script.
-		m_Character.Move(h, crouch, m_Jump);
+		m_Character.Move(horizontalInput, crouch, m_Jump);
 		m_Jump = false;
 	}
 }
