@@ -8,13 +8,14 @@ using UnityEngine;
 public class MagicProjectile : MonoBehaviour {
 
 	[SerializeField] private float speed; // Speed with which the projectile is fired.
+	public float duration = 2f;
 
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2(speed, 0));
 
 		// The projectile is destroyed after some time
-		Destroy (this.gameObject, 2f);
+		Destroy (this.gameObject, duration);
 	}
 	
 	// Update is called once per frame
@@ -24,9 +25,7 @@ public class MagicProjectile : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		// In case an obstacle is hit, calls the method to destroy it
-		if (coll.transform.parent.tag == "Obstacle") {
-			coll.gameObject.GetComponentInParent<DestructableObstacle>().DestroyObstacle();
-		} else if (coll.gameObject.tag == "Obstacle") {
+		if (coll.gameObject.tag == "Obstacle") {
 			coll.gameObject.GetComponent<DestructableObstacle>().DestroyObstacle();
 		}
 

@@ -18,7 +18,7 @@ public class Death : MonoBehaviour {
 
 	// Detects collision, and if it's an obstacle, the player shall die
 	void OnCollisionEnter2D(Collision2D otherColl) {
-		if (otherColl.transform.parent.tag == "Obstacle" || otherColl.gameObject.tag == "Obstacle") {
+		if (otherColl.gameObject.tag == "Obstacle") {
 			//Death animation
 
 			FindObjectOfType<GameController>().EndGame();
