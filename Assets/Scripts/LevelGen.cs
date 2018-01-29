@@ -13,7 +13,10 @@ public class LevelGen : MonoBehaviour {
 	public float ceilingHeight = 10.0f;
 	[Range(0.0f, 1.0f)]
 	public float hazard;
+	public float holeStartX = 30f;
+	public float hazardStartX = 50f;
 	public Transform parent;
+	private float startX;
 
 
 	public GameObject player;
@@ -33,6 +36,7 @@ public class LevelGen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		startX = player.transform.position.x;
 		offsetY = player.transform.position.y - 5;
 	}
 	
@@ -73,7 +77,7 @@ public class LevelGen : MonoBehaviour {
 				lastLevelChange = 2;
 			}
 		} else { // buraco
-			if (lastX < 30f){
+			if (lastX < holeStartX + startX){
 				CreatePlatform ();
 				return;
 			}
@@ -89,7 +93,7 @@ public class LevelGen : MonoBehaviour {
 			plat.transform.parent = parent;
 			if (lastLevelChange == 0){
 				//Obstacle
-				if (Random.Range (0.0f, 1.0f) < hazard && lastX > 50f) {
+				if (Random.Range (0.0f, 1.0f) < hazard && lastX > hazardStartX + startX) {
 					GameObject obst = Instantiate (obstacle, plat.transform);
 					obst.transform.localPosition.Set (0, 0.5f, 0);
 				}
@@ -97,9 +101,11 @@ public class LevelGen : MonoBehaviour {
 		} else { // buraco
 			prefab = holePrefab;
 			GameObject plat = (GameObject)Instantiate(prefab, new Vector2(lastX+dX, offsetY-5), Quaternion.identity);
+			plat.transform.parent = parent;
 		}
 		//Cria teto
 		GameObject ceiling = (GameObject)Instantiate(platPrefab, new Vector2(lastX+dX, offsetY+ceilingHeight), Quaternion.identity);
+		ceiling.transform.parent = parent;	
 			//Obstacle
 		if (Random.Range(0.0f, 1.0f) < hazard && lastX >200f){
 			GameObject obst2 = Instantiate(obstacle, ceiling.transform);
